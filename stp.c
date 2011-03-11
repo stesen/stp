@@ -4,7 +4,6 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include <iconv.h>
 #include <signal.h>
 #include <pthread.h>
 #include <time.h>
@@ -638,18 +637,6 @@ dontdel:
     }
 
     XFree(win);
-}
-
-void move_taskbar(void)
-{
-    int x, y;
-    x = y = 0;
-
-    if(!tb.at_top) {
-        y = scr_height - WINHEIGHT;
-    }
-
-    XMoveWindow(dd, tb.win, x, y);
 }
 
 void handle_press(int x, int y, int button)
