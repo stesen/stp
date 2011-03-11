@@ -3,8 +3,6 @@
 my $batt = &battery;
 my $statline;
 
-&check_x;
-
 if ($batt eq "100%") {
     $statline = sprintf("音乐.%s | 处理器.%2d%%  %s | 内存.%4dM | 温度.%3d°C | 网络.%s | 音量.%s | %s", &musicinfo, &cpu_calc, &load_avg, &mem_calc, &temp_read, &net_calc, &volume, &timeinfo);
 } else {
@@ -12,14 +10,6 @@ if ($batt eq "100%") {
 }
 print $statline;
 1;
-
-sub check_x {
-    my $x = `pidof X`;
-    unless ($x =~ /\d/) {
-        print "NO X\n";
-        exit;
-    }
-}
 
 sub cpu_read {
     my $cpu_file = '/proc/stat';
