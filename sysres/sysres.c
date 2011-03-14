@@ -98,6 +98,7 @@ void mpd(void)
     } else if ((strcmp(stat_buf, "pause") == 0) || (strcmp(stat_buf, "stop") == 0)) {
         strcpy(mpd_buff, stat_buf);
     }
+    close(sock_fd);
 }
 
 void cal_cpu_info(struct cpu_info *o, struct cpu_info *n)
